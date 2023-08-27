@@ -26,6 +26,7 @@ export default class Accordion extends Component {
     onAnimationEnd: () => null,
     sectionContainerStyle: {},
     renderAsFlatList: false,
+    flatListRef: null,
   };
 
   _toggleSection(section) {
@@ -105,6 +106,7 @@ export default class Accordion extends Component {
       renderSectionTitle,
       disabled,
       renderAsFlatList,
+      flatListRef,
       keyExtractor,
       ...restProps
     } = this.props;
@@ -133,6 +135,7 @@ export default class Accordion extends Component {
     if (renderAsFlatList) {
       return (
         <FlatList
+          ref={flatListRef}
           style={containerStyle}
           data={sections}
           extraData={activeSections}
